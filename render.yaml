@@ -1,0 +1,35 @@
+# Live well — Render Blueprint
+# Deploys the Express backend automatically.
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: live-well-api
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    plan: free
+    envVars:
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: PORT
+        value: 3001
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: VITE_STRIPE_PRICE_SERUM
+        value: price_1TfsqsJuHYsXNVYJwEpvRvVH
+      - key: VITE_STRIPE_PRICE_SERUM_SUB
+        value: price_1TfsqsJuHYsXNVYJ0oTKfXoA
+      - key: VITE_STRIPE_PRICE_REFILL
+        value: price_1TfsqsJuHYsXNVYJrhfahnkd
+      - key: VITE_STRIPE_PRICE_SHOWER
+        value: price_1TfsqtJuHYsXNVYJLV8JXmUq
+      - key: VITE_STRIPE_PRICE_FILTER
+        value: price_1TfsqtJuHYsXNVYJx211rzQy
+      - key: VITE_STRIPE_PRICE_FILTER_SUB
+        value: price_1TfsqtJuHYsXNVYJjWIAMBoi
+      - key: VITE_STRIPE_PRICE_LAMP
+        value: price_1TfsquJuHYsXNVYJ9RMKMUUe
